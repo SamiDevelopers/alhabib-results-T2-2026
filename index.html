@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>نتائج مركز الحبيب للألحان والدراسات القبطية</title>
+  
+  <!-- SDK -->
+  <script src="/_sdk/element_sdk.js"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  
+  <style>
+    /* ========================================
+       الهوية البصرية - مستوحاة من الصورة
+       ======================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-gold: #c9a03d;
+      --primary-gold-dark: #a07828;
+      --primary-gold-light: #e2c16a;
+      --primary-burgundy: #6b2e3a;
+      --primary-burgundy-dark: #4a1f27;
+      --primary-cream: #f5eedc;
+      --primary-cream-dark: #e8ddc5;
+      --bg-dark: #1a1a2e;
+      --bg-card: #16213e;
+      --text-dark: #2c2c2c;
+      --text-light: #f5f5f5;
+      --text-muted: #8a8a8a;
+      --success: #2d6a4f;
+      --success-light: #409b6e;
+      --warning: #e9c46a;
+      --danger: #e76f51;
+      --info: #4a90e2;
+      --celebration-gold: #ffd700;
+      --celebration-green: #2ecc71;
+      --border-radius-sm: 8px;
+      --border-radius-md: 12px;
+      --border-radius-lg: 20px;
+      --border-radius-xl: 30px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
+      --shadow-celebration: 0 0 30px rgba(46, 204, 113, 0.3);
+    }
+
+    body {
+      font-family: 'Cairo', 'Noto Kufi Arabic', sans-serif;
+      background: linear-gradient(135deg, #f5f0e8 0%, #e8ddc5 100%);
+      min-height: 100vh;
+      position: relative;
+      color: var(--text-dark);
+    }
+
+    /* خلفية زخرفية */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="%23c9a03d" d="M50,0 L61.8,38.2 L100,50 L61.8,61.8 L50,100 L38.2,61.8 L0,50 L38.2,38.2 Z"/></svg>');
+      background-repeat: repeat;
+      background-size: 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app-wrapper {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .main-container {
+      max-width: 650px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* البطاقة الرئيسية */
+    .hero-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201, 160, 61, 0.3);
+    }
+
+    .hero-header {
+      background: linear-gradient(135deg, var(--primary-burgundy) 0%, var(--primary-burgundy-dark) 100%);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 4px solid var(--primary-gold);
+    }
+
+    .hero-header::after {
+      content: '☩';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-gold);
+      color: var(--primary-burgundy);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-gold-light);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      color: rgba(245, 238, 220, 0.8);
+      line-height: 1.6;
+    }
+
+    .hero-decoration {
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      color: var(--primary-gold);
+      letter-spacing: 2px;
+    }
+
+    .hero-content {
+      padding: 2rem 1.8rem;
+      background: linear-gradient(135deg, #ffffff 0%, #fef9f0 100%);
+    }
+
+    .input-group {
+      margin-bottom: 1.8rem;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-burgundy);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    .custom-input {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      background: #ffffff;
+      border: 2px solid #e8ddc5;
+      border-radius: var(--border-radius-lg);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      transition: all 0.3s ease;
+      outline: none;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .custom-input:focus {
+      border-color: var(--primary-gold);
+      box-shadow: 0 0 0 3px rgba(201, 160, 61, 0.15);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+      border: none;
+      border-radius: var(--border-radius-lg);
+      color: white;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201, 160, 61, 0.4);
+    }
+
+    /* بطاقة النتيجة */
+    .result-card {
+      margin-top: 1.5rem;
+      background: white;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: slideUp 0.5s ease;
+      border: 1px solid rgba(201, 160, 61, 0.2);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-header {
+      background: linear-gradient(135deg, var(--primary-burgundy), var(--primary-burgundy-dark));
+      padding: 1.2rem 1.5rem;
+      color: white;
+    }
+
+    .result-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .result-stage {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    .result-code {
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-family: monospace;
+      margin-top: 0.5rem;
+    }
+
+    .info-section {
+      padding: 1.2rem 1.5rem;
+      background: #faf8f4;
+      border-bottom: 1px solid #eee;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .info-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(201, 160, 61, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-gold);
+    }
+
+    .info-text {
+      flex: 1;
+    }
+
+    .info-label {
+      font-size: 0.65rem;
+      color: #999;
+    }
+
+    .info-value {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .subjects-section {
+      padding: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--primary-burgundy);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (min-width: 500px) {
+      .subjects-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .subject-card {
+      background: #faf8f4;
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem 0.8rem;
+      text-align: center;
+      border: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+
+    .subject-card:hover {
+      border-color: var(--primary-gold);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .subject-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .subject-name {
+      font-size: 0.75rem;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+
+    /* تقدير المادة - تصميم مميز */
+    .subject-grade {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .grade-excellent { background: linear-gradient(135deg, #2d6a4f, #409b6e); color: white; box-shadow: 0 2px 8px rgba(45, 106, 79, 0.3); }
+    .grade-very-good { background: linear-gradient(135deg, #4a90e2, #6ba3f0); color: white; box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3); }
+    .grade-good { background: linear-gradient(135deg, #c9a03d, #dbb84f); color: white; box-shadow: 0 2px 8px rgba(201, 160, 61, 0.3); }
+    .grade-pass { background: linear-gradient(135deg, #e9c46a, #f0d07a); color: #5c4a1a; box-shadow: 0 2px 8px rgba(233, 196, 106, 0.3); }
+    .grade-fail { background: linear-gradient(135deg, #e76f51, #ed8a6e); color: white; box-shadow: 0 2px 8px rgba(231, 111, 81, 0.3); }
+
+    .final-section {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #fef9f0, #fff);
+      border-bottom: 1px solid #eee;
+    }
+
+    .final-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    @media (min-width: 500px) {
+      .final-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .final-item {
+      padding: 1rem;
+      background: #faf8f4;
+      border-radius: var(--border-radius-md);
+    }
+
+    .final-label {
+      font-size: 0.7rem;
+      color: #999;
+      margin-bottom: 0.5rem;
+    }
+
+    .final-value {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-burgundy);
+    }
+
+    .final-grade-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    /* ========================================
+       مربع مواد الدور الثاني (تحذير) - يظهر فقط في term2
+       ======================================== */
+    .second-round-box {
+      margin: 1rem 1.5rem 1.5rem;
+      background: linear-gradient(135deg, #fff8e7, #fff2dd);
+      border-right: 6px solid var(--warning);
+      border-radius: var(--border-radius-md);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .second-round-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--warning);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .second-round-content {
+      flex: 1;
+    }
+
+    .second-round-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #b8860b;
+      margin-bottom: 0.25rem;
+    }
+
+    .second-round-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #8b6914;
+    }
+
+    .second-round-warning {
+      font-size: 0.7rem;
+      color: #b8860b;
+      margin-top: 0.25rem;
+    }
+
+    /* ========================================
+       كرت التهنئة بالنجاح في الدور الثاني - يظهر فقط في term2
+       ======================================== */
+    .celebration-box {
+      margin: 1rem 1.5rem 1.5rem;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6d9);
+      border-right: 6px solid var(--celebration-green);
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow-celebration);
+      animation: celebrationPulse 0.8s ease, slideUp 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes celebrationPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .celebration-box::before {
+      content: '✨';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 80px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .celebration-box::after {
+      content: '🎉';
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      font-size: 80px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .celebration-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--celebration-green), var(--success));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+      animation: iconBounce 0.6s ease;
+      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+    }
+
+    @keyframes iconBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .celebration-content {
+      flex: 1;
+    }
+
+    .celebration-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--success);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .celebration-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1b5e2a;
+      line-height: 1.5;
+    }
+
+    .celebration-blessing {
+      font-size: 0.7rem;
+      color: #2d6a4f;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .confetti-dots {
+      display: flex;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .confetti-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--celebration-gold);
+      border-radius: 50%;
+      animation: float 1s infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    .hero-footer {
+      padding: 1rem 1.5rem;
+      background: #f5f0e8;
+      text-align: center;
+      border-top: 1px solid rgba(201, 160, 61, 0.2);
+      font-size: 0.65rem;
+      color: #999;
+    }
+
+    /* شاشة التحميل */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .loading-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .cross-loader {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(201, 160, 61, 0.2);
+      border-top-color: var(--primary-gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      position: relative;
+    }
+
+    .cross-loader::after {
+      content: '☩';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--primary-gold);
+      font-size: 1.5rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .alert-box {
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      animation: slideUp 0.3s ease;
+    }
+
+    .alert-error {
+      background: rgba(231, 111, 81, 0.1);
+      border: 1px solid #e76f51;
+      color: #e76f51;
+    }
+
+    .alert-warning {
+      background: rgba(233, 196, 106, 0.1);
+      border: 1px solid #e9c46a;
+      color: #b8860b;
+    }
+
+    .status-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="cross-loader"></div>
+    <p style="color: var(--primary-gold-light); margin-top: 1rem; font-weight: 600;">جاري تحميل النظام</p>
+    <p style="color: #aaa; font-size: 0.7rem; margin-top: 0.5rem;">نظام تقييم الألحان والتسبحة</p>
+  </div>
+
+  <div class="app-wrapper" id="appWrapper" style="display: none;">
+    <div class="main-container">
+      <div class="hero-card">
+        <div class="hero-header">
+          <h1 class="hero-title">نتائج مركز الحبيب للألحان والدراسات القبطية </h1>
+          <p class="hero-subtitle"> نتائج مركز الحبيب للإلحان - المستوي الأول - السنة الثالثة </p>
+          <div class="hero-decoration">✦ 2026 ✦</div>
+        </div>
+
+        <div class="hero-content">
+          <div class="input-group">
+            <label class="input-label">
+              <i data-lucide="key" style="width: 14px;"></i>
+              كود الدارس
+            </label>
+            <input type="text" class="custom-input" id="studentCode" placeholder="أدخل كود الدارس الخاص بك" autocomplete="off" maxlength="20">
+          </div>
+
+          <div class="input-group">
+            <label class="input-label">
+              <i data-lucide="book-open" style="width: 14px;"></i>
+              نوع الامتحان
+            </label>
+            <select class="custom-input" id="examSelect" style="appearance: auto;">
+              <option value="midterm1">📋 الميد ترم – الترم الأول 2025</option>
+              <option value="term1">📄 الترم الأول – ديسمبر 2025</option>
+              <option value="midterm2">📋 الميد ترم – الترم الثاني 2026</option>
+              <option value="term2">📄 الترم الثاني – مايو 2026</option>
+            </select>
+          </div>
+
+          <button class="login-btn" onclick="handleSearch()">
+            <i data-lucide="log-in" style="width: 18px;"></i>
+            <span id="searchBtnText">تحميل النتيجة</span>
+          </button>
+
+          <div id="resultArea"></div>
+
+          <div class="status-wrapper">
+            <span class="status-dot" id="statusDot"></span>
+            <span class="status-text" id="statusText" style="font-size: 0.65rem; color: #999;">النظام جاهز</span>
+          </div>
+        </div>
+
+        <div class="hero-footer">
+          <p>© 2026 مركز الحبيب للألحان والدراسات القبطية</p>
+          <p style="font-size: 0.6rem; margin-top: 0.25rem;">كنيسة العذراء مريم وماريوحنا الحبيب - فيصل</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========================================
+    // تكوين الروابط (محمية)
+    // ========================================
+    const SHEET_URLS = {
+      midterm1: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7PP0zGljjefa771H0xVC4N_NGhas0IcWMcIOyNkFZgqR04ueeJVykUS-HQyT-y0azdCZI6AiQPro/pub?gid=0&single=true&output=csv',
+      term1: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7PP0zGljjefa771H0xVC4N_NGhas0IcWMcIOyNkFZgqR04ueeJVykUS-HQyT-y0azdCZI6AiQPro/pub?gid=1837227441&single=true&output=csv',
+      midterm2: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTO_7x8ri8gn0SpiGZCnL8O-LP0IbF_E-uy22BXjTUm2qI4JhaBrYQXDRwV_tjUGfxIiFQ3iP9-auHZ/pub?gid=1381578766&single=true&output=csv',
+      term2: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTO_7x8ri8gn0SpiGZCnL8O-LP0IbF_E-uy22BXjTUm2qI4JhaBrYQXDRwV_tjUGfxIiFQ3iP9-auHZ/pub?gid=9330247&single=true&output=csv'
+    };
+
+    const COL = {
+      CODE: 0, NAME: 1, STAGE: 2, PHONE: 3, CLASS: 4,
+      LITURGY_SCORE: 5, MEMORY_SCORE: 6, COPTIC_SCORE: 7, HYMNS_SCORE: 8,
+      LITURGY_GRADE: 9, MEMORY_GRADE: 10, COPTIC_GRADE: 11, HYMNS_GRADE: 12,
+      TOTAL: 13, PERCENT: 14, FINAL_GRADE: 15, FINAL_STATUS: 16,
+      STUDENT_STATUS: 17, SECOND_ROUND: 18
+    };
+
+    let allResults = { midterm1: [], term1: [], midterm2: [], term2: [] };
+    let dataLoaded = false;
+
+    // ========================================
+    // دوال مساعدة
+    // ========================================
+    function parseCSV(csvText) {
+      const lines = csvText.split(/\r?\n/);
+      const rows = [];
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        const fields = [];
+        let inQuote = false, current = '';
+        for (let j = 0; j < line.length; j++) {
+          const ch = line[j];
+          if (ch === '"') inQuote = !inQuote;
+          else if (ch === ',' && !inQuote) { fields.push(current.trim()); current = ''; }
+          else current += ch;
+        }
+        fields.push(current.trim());
+        if (fields[COL.CODE] && fields[COL.CODE].length > 0) rows.push(fields);
+      }
+      return rows;
+    }
+
+    async function fetchSheet(key) {
+      const url = SHEET_URLS[key];
+      if (!url) return [];
+      try {
+        const res = await fetch(url, { cache: 'no-cache' });
+        if (!res.ok) throw new Error();
+        return parseCSV(await res.text());
+      } catch (e) {
+        console.error(e);
+        return [];
+      }
+    }
+
+    async function loadAllData() {
+      try {
+        const [m1, t1, m2, t2] = await Promise.all([
+          fetchSheet('midterm1'), fetchSheet('term1'), fetchSheet('midterm2'), fetchSheet('term2')
+        ]);
+        allResults.midterm1 = m1;
+        allResults.term1 = t1;
+        allResults.midterm2 = m2;
+        allResults.term2 = t2;
+        dataLoaded = true;
+        document.getElementById('statusDot').style.background = '#2d6a4f';
+        document.getElementById('statusText').innerText = 'النظام جاهز';
+      } catch (e) {
+        document.getElementById('statusDot').style.background = '#e76f51';
+      } finally {
+        await delay(600);
+        fadeOutLoader();
+      }
+    }
+
+    function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+    function fadeOutLoader() {
+      const el = document.getElementById('loadingScreen');
+      el.classList.add('fade-out');
+      setTimeout(() => {
+        el.style.display = 'none';
+        document.getElementById('appWrapper').style.display = 'block';
+      }, 500);
+    }
+
+    function escapeHtml(str) {
+      if (!str || str === '—') return '—';
+      return String(str).replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+    }
+
+    function getGradeClass(grade) {
+      if (!grade) return 'grade-fail';
+      const g = grade.trim();
+      if (g.includes('ممتاز')) return 'grade-excellent';
+      if (g.includes('جيد جدا') || g.includes('جيد جداً')) return 'grade-very-good';
+      if (g.includes('جيد')) return 'grade-good';
+      if (g.includes('مقبول')) return 'grade-pass';
+      return 'grade-fail';
+    }
+
+    function showAlert(container, type, title, detail) {
+      const alertClass = type === 'error' ? 'alert-error' : 'alert-warning';
+      container.innerHTML = `
+        <div class="alert-box ${alertClass}">
+          <i data-lucide="${type === 'error' ? 'alert-circle' : 'alert-triangle'}" style="width: 18px;"></i>
+          <div>
+            <p style="font-weight: 700; margin-bottom: 4px;">${title}</p>
+            <p style="font-size: 0.75rem;">${detail}</p>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // التحقق مما إذا كان الطالب ناجحاً في مواد الدور الثاني (لـ term2 فقط)
+    function isStudentPassedSecondRound(row, examKey) {
+      if (examKey !== 'term2') return false;
+      const finalStatus = row[COL.FINAL_STATUS] || '';
+      const secondRoundText = row[COL.SECOND_ROUND] || '';
+      if (finalStatus === 'ناجح' && secondRoundText && secondRoundText !== '—' && secondRoundText !== '') {
+        return true;
+      }
+      return false;
+    }
+
+    function hasSecondRoundSubjects(row, examKey) {
+      if (examKey !== 'term2') return false;
+      const secondRound = row[COL.SECOND_ROUND] || '';
+      return secondRound && secondRound !== '—' && secondRound.trim() !== '';
+    }
+
+    // دالة عرض التقدير فقط (بدون الدرجة)
+    function getGradeDisplay(grade) {
+      if (!grade || grade === '—') return '—';
+      return grade.trim();
+    }
+
+    function displayResult(container, row, examKey) {
+      const examNames = {
+        midterm1: 'الميد ترم – الترم الأول 2025',
+        term1: 'الترم الأول – ديسمبر 2025',
+        midterm2: 'الميد ترم – الترم الثاني 2026',
+        term2: 'الترم الثاني – مايو 2026'
+      };
+
+      const secondRound = row[COL.SECOND_ROUND] || '';
+      const studentName = escapeHtml(row[COL.NAME]);
+      
+      // التحقق من الحالات المختلفة - فقط لـ term2
+      const showSecondRoundWarning = hasSecondRoundSubjects(row, examKey) && !isStudentPassedSecondRound(row, examKey);
+      const showCelebration = isStudentPassedSecondRound(row, examKey);
+      
+      let additionalBoxHtml = '';
+      if (showCelebration) {
+        additionalBoxHtml = `
+          <div class="celebration-box">
+            <div class="celebration-icon">
+              <i data-lucide="award" style="width: 28px;"></i>
+            </div>
+            <div class="celebration-content">
+              <div class="celebration-title">
+                <span>🎉 مبارك النجاح!</span>
+                <i data-lucide="sparkles" style="width: 16px;"></i>
+              </div>
+              <div class="celebration-text">
+                تهانينا للدارس الغالي ${studentName} على النجاح في امتحانات الترم الثاني
+              </div>
+              <div class="celebration-blessing">
+                <i data-lucide="heart" style="width: 12px;"></i>
+                نتمنى لك دوام التفوق والنجاح في مسيرتك الدراسية
+                <i data-lucide="smile" style="width: 12px;"></i>
+              </div>
+              <div class="confetti-dots">
+                <span class="confetti-dot"></span>
+                <span class="confetti-dot" style="animation-delay: 0.2s;"></span>
+                <span class="confetti-dot" style="animation-delay: 0.4s;"></span>
+                <span class="confetti-dot" style="animation-delay: 0.6s;"></span>
+                <span class="confetti-dot" style="animation-delay: 0.8s;"></span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (showSecondRoundWarning) {
+        additionalBoxHtml = `
+          <div class="second-round-box">
+            <div class="second-round-icon">
+              <i data-lucide="alert-circle" style="width: 24px;"></i>
+            </div>
+            <div class="second-round-content">
+              <div class="second-round-title">⚠️ مواد الدور الثاني</div>
+              <div class="second-round-text">${escapeHtml(secondRound)}</div>
+              <div class="second-round-warning">يجب أداء امتحان الدور الثاني في المواد المحددة</div>
+            </div>
+          </div>
+        `;
+      }
+
+      // عرض التقديرات فقط (بدون الدرجات)
+      const liturgyGradeDisplay = getGradeDisplay(row[COL.LITURGY_GRADE]);
+      const memoryGradeDisplay = getGradeDisplay(row[COL.MEMORY_GRADE]);
+      const copticGradeDisplay = getGradeDisplay(row[COL.COPTIC_GRADE]);
+      const hymnsGradeDisplay = getGradeDisplay(row[COL.HYMNS_GRADE]);
+
+      const html = `
+        <div class="result-card">
+          <div class="result-header">
+            <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <h2 class="result-name">${studentName}</h2>
+                <p class="result-stage">${escapeHtml(row[COL.STAGE])}</p>
+              </div>
+              <div>
+                <span class="result-code">كود: ${escapeHtml(row[COL.CODE])}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-section">
+            <div class="info-item">
+              <div class="info-icon"><i data-lucide="phone" style="width: 16px;"></i></div>
+              <div class="info-text"><div class="info-label">رقم الهاتف</div><div class="info-value">${escapeHtml(row[COL.PHONE])}</div></div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i data-lucide="door-open" style="width: 16px;"></i></div>
+              <div class="info-text"><div class="info-label">الفصل داخل المركز</div><div class="info-value">${escapeHtml(row[COL.CLASS])}</div></div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i data-lucide="calendar" style="width: 16px;"></i></div>
+              <div class="info-text"><div class="info-label">نوع الامتحان</div><div class="info-value">${examNames[examKey]}</div></div>
+            </div>
+          </div>
+
+          <div class="subjects-section">
+            <div class="section-title">
+              <i data-lucide="music" style="width: 18px;"></i>
+              <span>نتائج المواد الدراسية</span>
+              <i data-lucide="music" style="width: 18px;"></i>
+            </div>
+            <div class="subjects-grid">
+              ${renderSubjectOnlyGrade('⛪', 'الطقوس الكنسية', liturgyGradeDisplay)}
+              ${renderSubjectOnlyGrade('📖', 'المحفوظات والأجبية', memoryGradeDisplay)}
+              ${renderSubjectOnlyGrade('𓂀', 'اللغة القبطية', copticGradeDisplay)}
+              ${renderSubjectOnlyGrade('🎵', 'الألحان والتسبحة', hymnsGradeDisplay)}
+            </div>
+          </div>
+
+          <div class="final-section">
+            <div class="final-grid">
+              <div class="final-item">
+                <div class="final-label">المجموع</div>
+                <div class="final-value">${escapeHtml(row[COL.TOTAL])}</div>
+              </div>
+              <div class="final-item">
+                <div class="final-label">النسبة المئوية</div>
+                <div class="final-value">${escapeHtml(row[COL.PERCENT])}</div>
+              </div>
+              <div class="final-item">
+                <div class="final-label">النتيجة النهائية</div>
+                <span class="final-grade-badge ${getGradeClass(row[COL.FINAL_GRADE])}">${escapeHtml(row[COL.FINAL_GRADE])}</span>
+              </div>
+              <div class="final-item">
+                <div class="final-label">موقف النتيجة</div>
+                <span class="final-grade-badge ${row[COL.FINAL_STATUS] === 'ناجح' ? 'grade-excellent' : 'grade-fail'}">${escapeHtml(row[COL.FINAL_STATUS])}</span>
+              </div>
+            </div>
+          </div>
+
+          ${additionalBoxHtml}
+
+          <div class="hero-footer" style="border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);">
+            <p>جميع البيانات سرية ومحمية • للاستفسار تواصل مع إدارة المركز</p>
+          </div>
+        </div>
+      `;
+      container.innerHTML = html;
+      lucide.createIcons();
+    }
+
+    // دالة عرض المادة مع التقدير فقط (بدون الدرجة)
+    function renderSubjectOnlyGrade(icon, name, grade) {
+      const gradeClass = getGradeClass(grade);
+      return `
+        <div class="subject-card">
+          <div class="subject-icon">${icon}</div>
+          <div class="subject-name">${name}</div>
+          <div class="subject-grade ${gradeClass}">${escapeHtml(grade)}</div>
+        </div>
+      `;
+    }
+
+    function handleSearch() {
+      const resultArea = document.getElementById('resultArea');
+      const examKey = document.getElementById('examSelect').value;
+      const rawCode = document.getElementById('studentCode').value.trim().toUpperCase();
+
+      if (!rawCode) {
+        showAlert(resultArea, 'error', 'كود الدارس مطلوب', 'الرجاء إدخال الكود الموجود في بطاقة الدارس');
+        return;
+      }
+      if (!dataLoaded) {
+        showAlert(resultArea, 'warning', 'البيانات قيد التحميل', 'انتظر لحظة ثم حاول مرة أخرى');
+        return;
+      }
+
+      const sheet = allResults[examKey];
+      if (!sheet || sheet.length === 0) {
+        showAlert(resultArea, 'warning', 'لا توجد بيانات', 'لم يتم رفع النتائج بعد لهذا الامتحان');
+        return;
+      }
+
+      const student = sheet.find(r => r[COL.CODE] && r[COL.CODE].trim().toUpperCase() === rawCode);
+      if (!student) {
+        showAlert(resultArea, 'error', `لم يتم العثور على الكود`, `تأكد من صحة الكود أو اختر نوع الامتحان الصحيح`);
+        return;
+      }
+
+      displayResult(resultArea, student, examKey);
+    }
+
+    // ربط الأحداث
+    document.getElementById('studentCode').addEventListener('keypress', e => { if (e.key === 'Enter') handleSearch(); });
+    document.getElementById('studentCode').addEventListener('input', function() {
+      this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    });
+    window.handleSearch = handleSearch;
+
+    // تهيئة Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig: {
+          center_name: 'مركز الحبيب',
+          center_subtitle: 'نظام تقييم الألحان والتسبحة',
+          search_button_text: 'دخول',
+          background_color: '#1a1a2e',
+          surface_color: '#16213e',
+          text_color: '#f5f5f5',
+          accent_color: '#c9a03d',
+          muted_color: '#8a8a8a',
+          font_family: 'Cairo',
+          font_size: 16
+        },
+        onConfigChange: (cfg) => {
+          const def = window.elementSdk.config;
+          document.getElementById('searchBtnText').innerText = cfg.search_button_text || def.search_button_text;
+          document.documentElement.style.setProperty('--primary-gold', cfg.accent_color || def.accent_color);
+          document.documentElement.style.setProperty('--bg-card', cfg.surface_color || def.surface_color);
+          document.body.style.fontFamily = `'${cfg.font_family || def.font_family}', 'Cairo', sans-serif`;
+        },
+        mapToEditPanelValues: (cfg) => new Map([
+          ['search_button_text', cfg.search_button_text || 'دخول']
+        ])
+      });
+    }
+
+    // بدء التشغيل
+    loadAllData();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
